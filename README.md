@@ -1,35 +1,55 @@
 # GO programs
 
-A collection of small Go practice programs, each in its own folder.
+Small Go practice programs, one folder each.
 
 ## Programs
 
-| Folder | Description |
+| Program | Description |
 | :--- | :--- |
 | `hello-world` | Prints `Hello, World!` |
 | `calculator` | Basic calculator (`+`, `-`, `*`, `/`) |
 | `age-checker` | Tells whether the age is under or over 18 |
-| `variables` | Variables and types demo |
+| `variables` | Explains variables and types in Go |
 | `operators` | Arithmetic operators demo |
 | `fibonacci` | Prints the Fibonacci sequence up to `N` |
 
-## Build and run
+## Run with Go
 
-Each folder is a standalone `main` package.
+1. Clone the repository.
 
-```sh
-go build -o /tmp/hello-world ./hello-world
-/tmp/hello-world
-```
+   ```sh
+   git clone https://github.com/Ars-byte/GO-programs
+   cd GO-programs
+   ```
 
-Or with `go run`:
+2. Run any program by its folder name.
 
-```sh
-go run ./hello-world
-```
+   ```sh
+   go run ./hello-world
+   ```
 
-## Releases
+   Replace `hello-world` with another folder from the table above.
 
-On every push, a GitHub Actions workflow builds all programs and publishes the
-binaries, tarballs and a `SHA256SUMS` file to the
-[latest release](https://github.com/Ars-byte/GO-programs/releases/latest).
+## Run a release binary
+
+1. Download a program (example: `hello-world`).
+
+   ```sh
+   curl -fsSL https://github.com/Ars-byte/GO-programs/releases/latest/download/hello-world -o hello-world
+   ```
+
+2. Make it executable.
+
+   ```sh
+   chmod +x hello-world
+   ```
+
+3. Run it.
+
+   ```sh
+   ./hello-world
+   ```
+
+All binaries are attached to the
+[latest release](https://github.com/Ars-byte/GO-programs/releases/latest), with
+checksums in `SHA256SUMS`.
