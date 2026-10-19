@@ -39,3 +39,7 @@ Small Go practice programs, one folder each.
 
 Prebuilt binaries are also available on the
 [latest release](https://github.com/Ars-byte/GO-programs/releases/latest).
+
+## License
+
+MIT
