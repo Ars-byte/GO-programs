@@ -29,7 +29,6 @@ jobs:
               continue
             fi
             go build -trimpath -ldflags="-s -w" -o "dist/${name}" "./${dir}"
-            tar -czf "dist/${name}.tar.gz" -C dist "${name}"
           done
 
       - name: Checksums
@@ -44,7 +43,7 @@ jobs:
             echo
             for f in dist/*; do
               case "$f" in
-                *.tar.gz|*/SHA256SUMS) continue ;;
+                */SHA256SUMS) continue ;;
               esac
               echo "- \`$(basename "$f")\`"
             done
