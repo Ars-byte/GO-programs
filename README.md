@@ -13,7 +13,7 @@ Small Go practice programs, one folder each.
 | `operators` | Arithmetic operators demo |
 | `fibonacci` | Prints the Fibonacci sequence up to `N` |
 
-## Run with Go
+## Usage
 
 1. Clone the repository.
 
@@ -22,7 +22,7 @@ Small Go practice programs, one folder each.
    cd GO-programs
    ```
 
-2. Run any program by its folder name.
+2. Run a program by its folder name.
 
    ```sh
    go run ./hello-world
@@ -30,26 +30,12 @@ Small Go practice programs, one folder each.
 
    Replace `hello-world` with another folder from the table above.
 
-## Run a release binary
-
-1. Download a program (example: `hello-world`).
+3. Optional: build a binary.
 
    ```sh
-   curl -fsSL https://github.com/Ars-byte/GO-programs/releases/latest/download/hello-world -o hello-world
-   ```
-
-2. Make it executable.
-
-   ```sh
-   chmod +x hello-world
-   ```
-
-3. Run it.
-
-   ```sh
+   go build -o hello-world ./hello-world
    ./hello-world
    ```
 
-All binaries are attached to the
-[latest release](https://github.com/Ars-byte/GO-programs/releases/latest), with
-checksums in `SHA256SUMS`.
+Prebuilt binaries are also available on the
+[latest release](https://github.com/Ars-byte/GO-programs/releases/latest).
