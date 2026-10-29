@@ -45,3 +45,6 @@ Small Go practice programs, one folder each.
 cd read-files
 go run .
 ```
+
+Prebuilt binaries are also available on the
+[latest release](https://github.com/Ars-byte/GO-programs/releases/latest).
