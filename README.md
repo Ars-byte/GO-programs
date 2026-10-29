@@ -38,3 +38,10 @@ Small Go practice programs, one folder each.
    go build -o hello-world ./hello-world
    ./hello-world
    ```
+
+`read-files` reads a sample file, so run it from its own folder.
+
+```sh
+cd read-files
+go run .
+```
