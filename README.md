@@ -14,3 +14,27 @@ Small Go practice programs, one folder each.
 | `fibonacci` | Prints the Fibonacci sequence up to `N` |
 | `read-files` | Reads a text file and prints it |
 | `date-and-hour` | Prints the current date and time |
+
+## Usage
+
+1. Clone the repository.
+
+   ```sh
+   git clone https://github.com/Ars-byte/GO-programs
+   cd GO-programs
+   ```
+
+2. Run a program by its folder name.
+
+   ```sh
+   go run ./hello-world
+   ```
+
+   Replace `hello-world` with another folder from the table above.
+
+3. Optional: build a binary.
+
+   ```sh
+   go build -o hello-world ./hello-world
+   ./hello-world
+   ```
