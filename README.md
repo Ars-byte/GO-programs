@@ -48,3 +48,7 @@ go run .
 
 Prebuilt binaries are also available on the
 [latest release](https://github.com/Ars-byte/GO-programs/releases/latest).
+
+## License
+
+MIT
