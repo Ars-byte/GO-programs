@@ -1,0 +1,4 @@
+Hola, este es un archivo de ejemplo para el programa read-files.
+
+Lo estas leyendo con Go usando os.ReadFile.
+Puedes editar este texto y volver a ejecutar el programa para ver los cambios.
