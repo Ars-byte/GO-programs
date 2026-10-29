@@ -1,0 +1,67 @@
+name: Build Go programs
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Build programs
+        run: |
+          mkdir -p dist
+          for dir in */; do
+            name="${dir%/}"
+            if [ ! -f "${dir}main.go" ]; then
+              continue
+            fi
+            go build -trimpath -ldflags="-s -w" -o "dist/${name}" "./${dir}"
+            tar -czf "dist/${name}.tar.gz" -C "dist" "${name}"
+          done
+
+      - name: Checksums
+        run: |
+          cd dist
+          sha256sum $(ls | grep -v '^SHA256SUMS$') > SHA256SUMS
+
+      - name: Prepare release notes
+        run: |
+          {
+            echo "## Binaries"
+            echo
+            for f in dist/*; do
+              case "$f" in
+                */SHA256SUMS) continue ;;
+              esac
+              echo "- \`$(basename "$f")\`"
+            done
+            echo
+            echo "### Checksums"
+            echo
+            echo '```'
+            cat dist/SHA256SUMS
+            echo '```'
+            echo
+            echo "Built from commit \`${GITHUB_SHA}\`."
+          } > RELEASE_NOTES.md
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest build
+          body_path: RELEASE_NOTES.md
+          files: dist/*
